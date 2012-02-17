@@ -21,6 +21,21 @@
     # notifies :create, "ruby_block[reset group list]", :immediately
   end
 
+  ssh_keys = u['ssh_keys']
+  if ssh_keys
+    directory "/home/#{u['id']}/.ssh" do
+      owner u['id']
+      group u['id']
+      mode '0700'
+    end
+    file "/home/#{u['id']}/.ssh/authorized_keys" do
+      owner u['id']
+      group u['id']
+      mode '0600'
+      content ssh_keys.join("\n")
+    end
+  end
+=begin
   ssh_keys = data_bag_item('users', u['id'])
   if ssh_keys
     directory "/home/#{u['id']}/.ssh" do
@@ -35,6 +50,7 @@
       content ssh_keys.join("\n")
     end
   end
+=end
 
 end
 
