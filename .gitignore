@@ -1,3 +1,4 @@
 .*.swp
 .*.swo
 data_bags/users/ic.json
+cookbooks
