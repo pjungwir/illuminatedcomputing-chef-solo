@@ -14,9 +14,9 @@ if [ -e "$HOME/.ssh/id_rsa.pub" ]; then
 fi
  
 tar cjh . | ssh -o 'StrictHostKeyChecking no' "$host" '
-rm -rf ~/chef &&
-mkdir ~/chef &&
-cd ~/chef &&
+rm -rf /tmp/chef &&
+mkdir /tmp/chef &&
+cd /tmp/chef &&
 tar xj &&
 bash install.sh'
 

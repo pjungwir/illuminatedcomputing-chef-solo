@@ -25,3 +25,7 @@ apache_site "ic.conf" do
   enable true
 end
 
+service "apache2" do
+  action :restart
+end
+
