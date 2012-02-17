@@ -1,0 +1,40 @@
+{
+  "set_fqdn": "illuminatedcomputing.com",
+
+  "users": {
+    "ic": {
+      "id": "ic",
+      "uid": 1000,
+      "gid": 1000,
+      "password": "*",
+      "ssh_keys": ["ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEArD7tEwllTnS/9IRBozgqfsrIrF9VOhjdq+xhQoMlnr9aaNR5Onk8KCJFQp1CKhGJYJ6ol3BtS+ctMfZ8UjWxZsvCtdFWw9aOZvWmjcCmBJrH1zbPt83O858CEZ4lk/F2xA4oVA5x/A99hPja0gTu5JMTzpskPhh0XSnwxkL2Zl4JfgIr9ynGyjgH0XwheckbHtcEneEo4sZNGOFrLjk0iAFhIiSfNnScdlrtBgviqF+mkPRS1q8+zBJzNZqfQG5VmhEAyntzvV5AW6GYV604NdXrSh7PU+Otn96g/W5B8WaMTy+6+gyK2dvwSML2q/mgW0DCZWPx0gB0umgcNedK3Q== pjungwir@shiny"],
+      "shell": "\/bin\/bash",
+      "comment": "Illuminated Computing"
+    }
+  },
+
+  "rvm": { "script": "rvm-install-latest" },
+
+  "passenger": {
+    "version": "3.0.3",
+    "module_path": "/path/gems/passenger-3.0.3/ext/apache2/mod_passenger.so",
+    "root_path": "/path/gems/passenger-3.0.3",
+    "ruby_bin": "/usr/bin/ruby"
+  },
+
+  "run_list": [
+    "recipe[base]",
+    "recipe[hostname]",
+    "recipe[users]",
+    "recipe[rvm::ruby_193]",
+    // "recipe[postgresql::client]",
+    // "recipe[postgresql::server]",
+    // "recipe[psql_user]",
+    "recipe[apache2]",
+    "recipe[apache2::mod_php5]",
+    // "recipe[rails]",
+    // "recipe[passenger_apache2]",
+    // "recipe[passenger_apache2::mod_rails]",
+    "recipe[ic]"
+  ]
+}
