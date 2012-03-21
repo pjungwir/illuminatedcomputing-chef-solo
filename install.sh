@@ -25,6 +25,9 @@ EOP
     [[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm"
     rvm install 1.9.3-p0
     rvm use 1.9.3-p0 --default
+    if [ ! -e '/usr/local/rvm/bin' ]; then
+      ln -s /usr/local/bin /usr/local/rvm/bin;
+    fi
 
     # Install chef
     gem install --no-rdoc --no-ri chef
