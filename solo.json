@@ -15,10 +15,7 @@
   "rvm": { "script": "rvm-install-latest" },
 
   "passenger": {
-    "version": "3.0.3",
-    "module_path": "/path/gems/passenger-3.0.3/ext/apache2/mod_passenger.so",
-    "root_path": "/path/gems/passenger-3.0.3",
-    "ruby_bin": "/usr/bin/ruby"
+    "version": "3.0.3"
   },
 
   "run_list": [
@@ -32,8 +29,9 @@
     "recipe[apache2]",
     "recipe[apache2::mod_php5]",
     // "recipe[rails]",
-    // "recipe[passenger_apache2]",
+    "recipe[passenger::apache2]",
     // "recipe[passenger_apache2::mod_rails]",
-    "recipe[ic]"
+    "recipe[ic]",
+    "recipe[apartment-helper]"
   ]
 }
