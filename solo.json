@@ -9,6 +9,14 @@
       "password": "*",
       "shell": "\/bin\/bash",
       "comment": "Illuminated Computing"
+    },
+    "aw": {
+      "id": "aw",
+      "uid": 2001,
+      "gid": 2001,
+      "password": "*",
+      "shell": "\/bin\/bash",
+      "comment": "AngryWords"
     }
   },
 
@@ -23,7 +31,7 @@
     "recipe[hostname]",
     "recipe[users]",
     // "recipe[rvm::ruby_193]",
-    // "recipe[postgresql::client]",
+    "recipe[postgres]",
     // "recipe[postgresql::server]",
     // "recipe[psql_user]",
     "recipe[apache2]",
