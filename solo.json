@@ -40,6 +40,7 @@
     "recipe[passenger::apache2]",
     // "recipe[passenger_apache2::mod_rails]",
     "recipe[ic]",
-    "recipe[apartment-helper]"
+    "recipe[apartment-helper]",
+    "recipe[aw]"
   ]
 }
