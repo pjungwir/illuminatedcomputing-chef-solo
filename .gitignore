@@ -1,4 +1,5 @@
 .*.swp
 .*.swo
 data-bags/users/ic.json
+data-bags/aw/staging.json
 cookbooks

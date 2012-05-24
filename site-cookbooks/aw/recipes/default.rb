@@ -32,6 +32,17 @@ directory "/var/www/angrywords-staging" do
   action :create
 end
 
+dbi = data_bag_item('aw', 'staging')
+template "/var/www/angrywords-staging/passwords" do
+  source "passwords.erb"
+  owner "root"
+  group "root"
+  mode "0644"
+  action :create
+  # variables :password => 'hithere'
+  variables :password => dbi['password']
+end
+
 cookbook_file "#{node[:apache][:dir]}/sites-available/angrywords-staging.conf" do
   owner "root"
   group "root"
