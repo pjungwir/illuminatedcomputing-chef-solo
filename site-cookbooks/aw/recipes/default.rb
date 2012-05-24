@@ -3,15 +3,15 @@ apache_site "default" do
   enable false
 end
 
+apache_module 'rewrite' do
+  enable true
+end
+
 directory "/var/www/angrywords" do
   owner "aw"
   group "aw"
   mode "0755"
   action :create
-end
-
-apache_module 'rewrite' do
-  enable true
 end
 
 cookbook_file "#{node[:apache][:dir]}/sites-available/angrywords.conf" do
@@ -22,6 +22,24 @@ cookbook_file "#{node[:apache][:dir]}/sites-available/angrywords.conf" do
 end
 
 apache_site "angrywords.conf" do
+  enable true
+end
+
+directory "/var/www/angrywords-staging" do
+  owner "aw"
+  group "aw"
+  mode "0755"
+  action :create
+end
+
+cookbook_file "#{node[:apache][:dir]}/sites-available/angrywords-staging.conf" do
+  owner "root"
+  group "root"
+  mode "0644"
+  action :create
+end
+
+apache_site "angrywords-staging.conf" do
   enable true
 end
 
