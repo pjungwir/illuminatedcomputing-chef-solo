@@ -5,6 +5,7 @@ package 'libyaml-0-2'
 package 'libyaml-dev'
 package 'libxslt1.1'
 package 'libxslt-dev'
+package 'monit'
 
 apache_site "default" do
   enable false
@@ -63,5 +64,13 @@ end
 
 service "apache2" do
   action :restart
+end
+
+package 'monit'
+cookbook_file "/etc/monit/monitrc" do
+  owner "root"
+  group "root"
+  mode "0644"
+  action :create
 end
 
