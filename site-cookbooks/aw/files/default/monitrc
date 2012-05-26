@@ -260,5 +260,6 @@ set httpd port 2812 and
 #
 #  include /etc/monit.d/*
 include /var/www/alienwords/current/config/alienwords.monitrc
+include /var/www/alienwords-staging/current/config/alienwords_staging.monitrc
 #
 #

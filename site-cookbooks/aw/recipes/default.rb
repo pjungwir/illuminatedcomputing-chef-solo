@@ -70,7 +70,7 @@ package 'monit'
 cookbook_file "/etc/monit/monitrc" do
   owner "root"
   group "root"
-  mode "0644"
+  mode "0600"
   action :create
 end
 
