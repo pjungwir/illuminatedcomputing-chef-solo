@@ -47,8 +47,8 @@ template "/var/www/alienwords-staging/passwords" do
   group "root"
   mode "0644"
   action :create
-  # variables :password => 'hithere'
-  variables :password => dbi['password']
+  variables :password => dbi['password'],
+            :stripe_password => dbi['stripe_password']
 end
 
 cookbook_file "#{node[:apache][:dir]}/sites-available/alienwords-staging.conf" do
