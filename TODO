@@ -1,2 +1,3 @@
 - Better rvm installation.
 - Install readline for better irb & rails console.
+- Install libyaml to silence lots of ruby warnings.

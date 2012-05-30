@@ -39,6 +39,7 @@
     // "recipe[rails]",
     "recipe[passenger::apache2]",
     // "recipe[passenger_apache2::mod_rails]",
+    "recipe[memcached]",
     "recipe[ic]",
     "recipe[apartment-helper]",
     "recipe[aw]"
