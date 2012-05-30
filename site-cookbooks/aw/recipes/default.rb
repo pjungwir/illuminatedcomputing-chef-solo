@@ -5,7 +5,10 @@ package 'libyaml-0-2'
 package 'libyaml-dev'
 package 'libxslt1.1'
 package 'libxslt-dev'
+package 'postfix'
+package 'mailutils'
 package 'monit'
+package 'moreutils'
 
 apache_site "default" do
   enable false
@@ -74,3 +77,10 @@ cookbook_file "/etc/monit/monitrc" do
   action :create
 end
 
+cron 'db_backups' do
+  minute 22
+  hour 2
+  user 'aw'
+  command "cd /var/www/alienwords/current && /usr/bin/env RAILS_ENV=production /usr/local/bin/rvm -S rake db:backup"
+  mailto 'pj@illuminatedcomputing.com'
+end
