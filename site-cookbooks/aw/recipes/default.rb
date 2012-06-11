@@ -81,6 +81,6 @@ cron 'db_backups' do
   minute 22
   hour 2
   user 'aw'
-  command "cd /var/www/alienwords/current && /usr/bin/env RAILS_ENV=production /usr/local/bin/rvm -S rake db:backup"
+  command "cd /var/www/alienwords/current && /usr/bin/chronic /usr/bin/env RAILS_ENV=production /usr/local/bin/rvm -S rake db:backup"
   mailto 'pj@illuminatedcomputing.com'
 end

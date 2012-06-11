@@ -30,6 +30,7 @@
     "recipe[base]",
     "recipe[hostname]",
     "recipe[users]",
+    "recipe[chronic]",
     // "recipe[rvm::ruby_193]",
     "recipe[postgres]",
     // "recipe[postgresql::server]",
