@@ -18,6 +18,10 @@ apache_module 'rewrite' do
   enable true
 end
 
+apache_module 'ssl' do
+  enable true
+end
+
 directory "/var/www/alienwords" do
   owner "aw"
   group "aw"
@@ -41,6 +45,44 @@ directory "/var/www/alienwords-staging" do
   group "aw"
   mode "0755"
   action :create
+end
+
+cookbook_file "#{node[:apache][:dir]}/ssl/alienwords.crt" do
+  owner "root"
+  group "root"
+  mode "0644"
+  action :create
+end
+
+cookbook_file "#{node[:apache][:dir]}/ssl/PositiveSSLCA2.crt" do
+  owner "root"
+  group "root"
+  mode "0644"
+  action :create
+end
+
+cookbook_file "#{node[:apache][:dir]}/ssl/AddTrustExternalCARoot.crt" do
+  owner "root"
+  group "root"
+  mode "0644"
+  action :create
+end
+
+cookbook_file "#{node[:apache][:dir]}/ssl/alienwords-chain.crt" do
+  owner "root"
+  group "root"
+  mode "0644"
+  action :create
+end
+
+dbi = data_bag_item('aw', 'ssl')
+template "#{node[:apache][:dir]}/ssl/alienwords.key" do
+  source "alienwords.key.erb"
+  owner "root"
+  group "root"
+  mode "0600"
+  action :create
+  variables :key => dbi['key']
 end
 
 dbi = data_bag_item('aw', 'staging')

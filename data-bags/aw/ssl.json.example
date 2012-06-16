@@ -1,0 +1,4 @@
+{
+  "id": "ssl",
+  "key": "-----BEGIN PRIVATE KEY-----\nYOUR PRIVATE KEY HERE\nWITH EMBEDDED NEWLINES\n-----END PRIVATE KEY-----"
+}
