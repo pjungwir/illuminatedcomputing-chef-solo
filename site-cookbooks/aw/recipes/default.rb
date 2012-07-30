@@ -22,6 +22,10 @@ apache_module 'ssl' do
   enable true
 end
 
+apache_module 'headers' do
+  enable true
+end
+
 directory "/var/www/alienwords" do
   owner "aw"
   group "aw"
